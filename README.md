@@ -37,7 +37,7 @@ Based on `pre-commit` hook of [Carlos Buenosvinos](http://carlosbuenosvinos.com/
 
 ```bash
 $ git ci -m "commit message"
-Intaro Code Quality Tool
+Check Code Quality Tool
 Fetching files
 Running PHPLint
 Checking code style
@@ -49,7 +49,7 @@ Checking code style
 
 ```bash
 $ git ci -m "commit message"
-Intaro Code Quality Tool
+Check Code Quality Tool
 Fetching files
 Running PHPLint
 Checking code style
