@@ -8,8 +8,8 @@ Clone repository:
 
 ```bash
 cd some/path
-git clone https://github.com/intaro/php-git-hooks
-cd php-git-hooks
+git clone https://github.com/vannh-ait/check_psr.git
+cd check_psr
 php -r "readfile('https://getcomposer.org/installer');" | php
 ./composer.phar install
 ```
@@ -18,7 +18,7 @@ Make symlink to the `pre-commit` file:
 
 ```bash
 cd some/symfony/project/.git/hooks
-ln -s some/path/php-git-hooks/pre-commit pre-commit
+ln -s some/path/check_psr/pre-commit pre-commit
 ```
 
 ## pre-commit
@@ -26,7 +26,10 @@ ln -s some/path/php-git-hooks/pre-commit pre-commit
 Checks the committed files:
 
 * PHP Syntax on PHP-errors (with PHPLint)
-* Check code style for compliance with the standard PSR2
+* Fix style PSR-2 with php-fixer-cs
+* Fix style PSR-2 with phpcbf
+* Check PHPCS
+* Check PHPMD
 
 Based on `pre-commit` hook of [Carlos Buenosvinos](http://carlosbuenosvinos.com/write-your-git-hooks-in-php-and-keep-them-under-git-control/).
 
@@ -38,7 +41,7 @@ Intaro Code Quality Tool
 Fetching files
 Running PHPLint
 Checking code style
-1) src/Acme/DemoBundle/Tests/Controller/DefaultControllerTest.php (unused_use, eof_ending)
+1) app/Controller/TestControllerTest.php (unused_use, eof_ending)
 
   [Exception]
   There are coding standards violations!
@@ -51,7 +54,7 @@ Fetching files
 Running PHPLint
 Checking code style
 Checking code style with PHPCS
-FILE: ...m/src/Acme/DemoBundle/Tests/Controller/DefaultControllerTest.php
+FILE: ...app/Controller/TestControllerTest.php
 --------------------------------------------------------------------------------
 FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
 --------------------------------------------------------------------------------
@@ -65,7 +68,7 @@ FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
 
 ```bash
 $ git ci -m "commit message"
-Intaro Code Quality Tool
+Check Code Quality Tool
 Fetching files
 Running PHPLint
 Checking code style
@@ -75,5 +78,8 @@ Good job dude!
  10 files changed, 357 insertions(+), 17 deletions(-)
  create mode 120000 bin/php-cs-fixer
  create mode 120000 bin/phpcs
- create mode 100644 src/Acme/DemoBundle/Tests/Controller/DefaultControllerTest.php
+ create mode 120000 bin/phpmd
+ create mode 120000 bin/php-fixer-cs
+ create mode 120000 bin/phpcbf
+ create mode 100644 app/Controller/TestControllerTest.php
 ```
