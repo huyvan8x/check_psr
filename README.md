@@ -7,7 +7,7 @@ The Git hooks for applying in the local repository of the PHP project. Include t
 Clone repository:
 
 ```bash
-cd some/path
+cd /Volumes/Macintosh\ HD/var/www/psr
 git clone https://github.com/vannh-ait/check_psr.git
 cd check_psr
 php -r "readfile('https://getcomposer.org/installer');" | php
@@ -17,8 +17,8 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 Make symlink to the `pre-commit` file:
 
 ```bash
-cd some/symfony/project/.git/hooks
-ln -s some/path/check_psr/pre-commit pre-commit
+cd /Volumes/Macintosh\ HD/var/www/demo/.git/hooks
+ln -s cd /Volumes/Macintosh\ HD/var/www/psr/check_psr/pre-commit pre-commit
 ```
 
 ## pre-commit
@@ -32,6 +32,21 @@ Checks the committed files:
 * Check PHPMD
 
 Based on `pre-commit` hook of [Carlos Buenosvinos](http://carlosbuenosvinos.com/write-your-git-hooks-in-php-and-keep-them-under-git-control/).
+
+
+### Check psr but not commit
+```bash
+cd /Volumes/Macintosh\ HD/var/www/psr/check_psr/vendor/bin
+
+---- Check ---------
+php -l file_name_or_folder_name
+phpcs --standard=PSR2 file_name_or_folder_name
+phpmd file_name_or_folder_name  text cleancode,codesize,controversial,design,naming,unusedcode
+
+----- Fix----
+php-cs-fixer fix file_name_or_folder_name --level=psr2
+./phpcbf file_name_or_folder_name --standard=PSR2
+```
 
 ### Example of output
 

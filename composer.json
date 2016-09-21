@@ -4,6 +4,6 @@
         "friendsofphp/php-cs-fixer": "@stable",
         "symfony/console": "@stable",
         "symfony/process": "@stable",
-	"phpmd/phpmd" : "@stable"
+		"phpmd/phpmd" : "@stable"
     }
 }
