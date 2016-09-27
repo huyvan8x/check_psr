@@ -51,7 +51,7 @@ class CodeQualityTool extends Application
         }
 
         $output->writeln('<info>Checking code style with PHPCS</info>');
-        if ($this->codeStylePsr($files)) {
+        if (!$this->codeStylePsr($files)) {
             throw new Exception(sprintf('There are PHPCS coding standards violations!'));
         }
 
