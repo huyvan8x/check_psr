@@ -18,7 +18,7 @@ Make symlink to the `pre-commit` file:
 
 ```bash
 cd /Volumes/Macintosh\ HD/var/www/demo/.git/hooks
-ln -s cd /Volumes/Macintosh\ HD/var/www/psr/check_psr/pre-commit pre-commit
+ln -s /Volumes/Macintosh\ HD/var/www/psr/check_psr/pre-commit pre-commit
 ```
 
 ## pre-commit
